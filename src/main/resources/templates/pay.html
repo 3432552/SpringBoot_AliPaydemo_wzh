@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>去支付</title>
+</head>
+<body>
+<form method=post action="/pay/toPay">
+    <div id="body" style="clear:left">
+        <dl class="content">
+            <dt>用户id：</dt>
+            <dd>
+                <input id="userId" name="userId"/>
+            </dd>
+            <hr class="one_line">
+            <dt>支付金额：</dt>
+            <dd>
+                <input id="totalAmount" name="totalAmount"/>
+            </dd>
+            <hr class="one_line">
+            <dt>订单id：</dt>
+            <dd>
+                <input id="orderId" name="orderId"/>
+            </dd>
+            <hr class="one_line"/>
+            <dt>商品名称：</dt>
+            <dd>
+                <input id="subject" name="subject"/>
+            </dd>
+            <hr class="one_line">
+            <dt></dt>
+            <dd id="btn-dd">
+                        <span class="new-btn-login-sp">
+                            <button class="new-btn-login" type="submit" style="text-align:center;">确 认</button>
+                        </span>
+                <span class="note-help">如果您点击“确认”按钮，即表示您同意该次的执行操作。</span>
+            </dd>
+        </dl>
+    </div>
+</form>
+</body>
+</html>

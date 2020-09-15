@@ -1,0 +1,392 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost
+Source Server Version : 50725
+Source Host           : localhost:3306
+Source Database       : crm
+
+Target Server Type    : MYSQL
+Target Server Version : 50725
+File Encoding         : 65001
+
+Date: 2020-09-10 17:36:31
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for tbl_clue
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_clue`;
+CREATE TABLE `tbl_clue` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `fullname` varchar(255) DEFAULT NULL,
+  `appellation` varchar(255) DEFAULT NULL,
+  `owner` char(32) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `job` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `mphone` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `contactSummary` varchar(255) DEFAULT NULL,
+  `nextContactTime` char(10) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_clue
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_clue_activity_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_clue_activity_relation`;
+CREATE TABLE `tbl_clue_activity_relation` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `clueId` char(32) DEFAULT NULL,
+  `activityId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_clue_activity_relation
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_clue_remark
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_clue_remark`;
+CREATE TABLE `tbl_clue_remark` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `noteContent` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `editFlag` char(1) DEFAULT NULL,
+  `clueId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_clue_remark
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_contacts
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_contacts`;
+CREATE TABLE `tbl_contacts` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `owner` char(32) DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
+  `customerId` char(32) DEFAULT NULL,
+  `fullname` varchar(255) DEFAULT NULL,
+  `appellation` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mphone` varchar(255) DEFAULT NULL,
+  `job` varchar(255) DEFAULT NULL,
+  `birth` char(10) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `contactSummary` varchar(255) DEFAULT NULL,
+  `nextContactTime` char(10) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_contacts
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_contacts_activity_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_contacts_activity_relation`;
+CREATE TABLE `tbl_contacts_activity_relation` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `contactsId` char(32) DEFAULT NULL,
+  `activityId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_contacts_activity_relation
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_contacts_remark
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_contacts_remark`;
+CREATE TABLE `tbl_contacts_remark` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `noteContent` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `editFlag` char(1) DEFAULT NULL,
+  `contactsId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_contacts_remark
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_customer
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_customer`;
+CREATE TABLE `tbl_customer` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `owner` char(32) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `contactSummary` varchar(255) DEFAULT NULL,
+  `nextContactTime` char(10) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_customer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_customer_remark
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_customer_remark`;
+CREATE TABLE `tbl_customer_remark` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `noteContent` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `editFlag` char(1) DEFAULT NULL,
+  `customerId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_customer_remark
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_dic_type
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_dic_type`;
+CREATE TABLE `tbl_dic_type` (
+  `code` varchar(255) NOT NULL COMMENT '编码是主键，不能为空，不能含有中文。',
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_dic_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_dic_value
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_dic_value`;
+CREATE TABLE `tbl_dic_value` (
+  `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '主键，',
+  `value` varchar(255) DEFAULT NULL COMMENT '不能为空，并且要求同一个字典类型下字典值不能重复，具有唯一性。',
+  `text` varchar(255) DEFAULT NULL COMMENT '可以为空',
+  `orderNo` varchar(255) DEFAULT NULL COMMENT '可以为空，但不为空的时候，要求必须是正整数',
+  `typeCode` varchar(255) DEFAULT NULL COMMENT '外键',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_dic_value
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_tran
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_tran`;
+CREATE TABLE `tbl_tran` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `owner` char(32) DEFAULT NULL,
+  `money` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `expectedDate` char(10) DEFAULT NULL,
+  `customerId` char(32) DEFAULT NULL,
+  `stage` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `source` varchar(255) DEFAULT NULL,
+  `activityId` char(32) DEFAULT NULL,
+  `contactsId` char(32) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `contactSummary` varchar(255) DEFAULT NULL,
+  `nextContactTime` char(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_tran
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_tran_history
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_tran_history`;
+CREATE TABLE `tbl_tran_history` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `stage` varchar(255) DEFAULT NULL,
+  `money` varchar(255) DEFAULT NULL,
+  `expectedDate` char(10) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `tranId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_tran_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_tran_remark
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_tran_remark`;
+CREATE TABLE `tbl_tran_remark` (
+  `id` int(32) NOT NULL AUTO_INCREMENT,
+  `noteContent` varchar(255) DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `createTime` char(19) DEFAULT NULL,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editTime` char(19) DEFAULT NULL,
+  `editFlag` char(1) DEFAULT NULL,
+  `tranId` char(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_tran_remark
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for w_activity
+-- ----------------------------
+DROP TABLE IF EXISTS `w_activity`;
+CREATE TABLE `w_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `owner` int(11) NOT NULL COMMENT '外键 关联用户id',
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL COMMENT '状态',
+  `startDate` datetime NOT NULL,
+  `endDate` datetime NOT NULL,
+  `budgetcost` varchar(10) NOT NULL,
+  `actualcost` decimal(10,2) NOT NULL COMMENT '实际成本',
+  `description` varchar(255) DEFAULT NULL,
+  `createTime` datetime NOT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `editTime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `editBy` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of w_activity
+-- ----------------------------
+INSERT INTO `w_activity` VALUES ('21', '2', 'wzh', '推举程序', '激活的', '2020-03-30 00:00:00', '2020-04-09 00:00:00', '1358', '123.00', 'ndfdyte阿发', '2020-04-06 19:18:56', '王志浩', '2020-05-27 10:16:19', '王志浩');
+INSERT INTO `w_activity` VALUES ('27', '1', '搓澡', '会议', '计划中', '2020-04-06 00:00:00', '2020-04-24 00:00:00', '646', '432.00', 'sagsagagga', '2020-04-10 17:48:24', '王志浩', '2020-04-30 15:04:32', '王志浩');
+INSERT INTO `w_activity` VALUES ('33', '1', 'lele', '合作伙伴', '休眠', '2020-04-06 00:00:00', '2020-04-30 00:00:00', '2432', '234.00', 'mmmmmm', '2020-04-18 11:44:57', '王志浩', '2020-05-26 11:30:51', '王志浩');
+INSERT INTO `w_activity` VALUES ('35', '1', 'ls', '直接邮件', '激活的', '2020-04-06 00:00:00', '2020-05-25 00:00:00', '231', '123.00', 'ls的描述沟通', '2020-04-23 14:04:54', '王志浩', '2020-05-21 11:52:11', '王志浩');
+INSERT INTO `w_activity` VALUES ('36', '1', '1', '会议', '激活的', '2020-05-11 00:00:00', '2020-05-12 00:00:00', '432553', '225.00', '温热未确认犬瘟热', '2020-05-27 10:18:14', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('37', '1', '2', '会议', '完成', '2020-05-13 00:00:00', '2020-05-29 00:00:00', '345', '43.00', '人去确认', '2020-05-27 10:19:13', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('38', '1', '3', '会议', '计划中', '2020-05-11 00:00:00', '2020-05-22 00:00:00', '1254', '3453.00', '古人所说的公司', '2020-05-27 10:19:34', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('39', '1', '4', '会议', '计划中', '2020-05-04 00:00:00', '2020-05-21 00:00:00', '24', '54.00', '任太尉', '2020-05-27 10:19:47', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('40', '1', '5', '会议', '休眠', '2020-05-12 00:00:00', '2020-05-20 00:00:00', '452', '433.00', '灌水灌水的', '2020-05-27 10:20:11', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('41', '1', '6', '会议', '激活的', '2020-05-04 00:00:00', '2020-05-29 00:00:00', '454', '342.00', '分段施工施工', '2020-05-27 10:20:25', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('42', '1', '7', '会议', '休眠', '2020-04-27 00:00:00', '2020-05-29 00:00:00', '234', '343.00', '公司收到公司', '2020-05-27 10:20:41', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('43', '1', '8', '会议', '激活的', '2020-04-28 00:00:00', '2020-05-13 00:00:00', '245', '54.00', '收费的公司', '2020-05-27 10:20:55', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('44', '1', '9', '会议', '休眠', '2020-04-27 00:00:00', '2020-05-15 00:00:00', '564', '224.00', '然后是', '2020-05-27 10:21:10', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('45', '1', '10', '会议', '休眠', '2020-04-29 00:00:00', '2020-05-13 00:00:00', '452', '23.00', '帅哥帅哥', '2020-05-27 10:21:22', '王志浩', null, null);
+INSERT INTO `w_activity` VALUES ('46', '1', '243234', '会议', '激活的', '2020-08-18 00:00:00', '2020-07-28 00:00:00', '234', '13.00', '2424', '2020-08-20 15:11:57', '王志浩', null, null);
+
+-- ----------------------------
+-- Table structure for w_activity_remark
+-- ----------------------------
+DROP TABLE IF EXISTS `w_activity_remark`;
+CREATE TABLE `w_activity_remark` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noteContent` varchar(255) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime DEFAULT NULL,
+  `createBy` varchar(255) DEFAULT NULL,
+  `editTime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `editBy` varchar(255) DEFAULT NULL,
+  `editFlag` varchar(255) DEFAULT NULL,
+  `activityId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of w_activity_remark
+-- ----------------------------
+INSERT INTO `w_activity_remark` VALUES ('12', '备注1', null, null, '2020-04-24 15:55:52', 'ls', null, '27');
+INSERT INTO `w_activity_remark` VALUES ('18', '备注5', null, null, '2020-04-24 18:16:24', 'saf', null, '27');
+INSERT INTO `w_activity_remark` VALUES ('19', '备注6', null, null, '2020-04-24 18:16:25', 'fa', null, '27');
+INSERT INTO `w_activity_remark` VALUES ('90', '备注21', '2020-04-27 15:06:32', '王志浩', '2020-05-21 13:34:15', '王志浩', null, '21');
+INSERT INTO `w_activity_remark` VALUES ('92', '备注17', '2020-04-27 15:08:48', '王志浩', '2020-05-21 13:33:22', '王志浩', null, '21');
+INSERT INTO `w_activity_remark` VALUES ('94', 'agfadaga', '2020-04-27 15:13:19', '王志浩', '2020-04-27 15:13:25', '王志浩', null, '33');
+INSERT INTO `w_activity_remark` VALUES ('96', 'tryrur', '2020-05-21 13:30:42', '王志浩', null, null, null, '33');
+INSERT INTO `w_activity_remark` VALUES ('97', 'gdfghd', '2020-05-21 13:30:47', '王志浩', null, null, null, '33');
+INSERT INTO `w_activity_remark` VALUES ('98', 'ngfh', '2020-05-21 13:30:50', '王志浩', null, null, null, '33');
+INSERT INTO `w_activity_remark` VALUES ('100', '备注23', '2020-05-27 10:01:07', '王志浩', null, null, null, '21');
+
+-- ----------------------------
+-- Table structure for w_user
+-- ----------------------------
+DROP TABLE IF EXISTS `w_user`;
+CREATE TABLE `w_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) DEFAULT NULL,
+  `loginact` varchar(255) NOT NULL,
+  `loginpwd` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `expiretime` datetime DEFAULT NULL,
+  `lockstate` varchar(255) DEFAULT '' COMMENT '锁定状态  0：锁定  1：启用',
+  `deptnum` varchar(255) DEFAULT NULL,
+  `allowip` varchar(255) DEFAULT NULL,
+  `createtime` datetime DEFAULT NULL,
+  `createby` varchar(255) DEFAULT NULL,
+  `edittime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `editby` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of w_user
+-- ----------------------------
+INSERT INTO `w_user` VALUES ('1', '王志浩', 'wzh', '202cb962ac59075b964b07152d234b70', 'vae226146@163.com', '2020-10-01 15:53:21', '1', '1', '127.0.0.1,0:0:0:0:0:0:0:1,192.168.0.62,192.168.1.101', '2020-03-29 15:54:00', '王志浩', '2020-05-09 15:38:12', '王志浩');
+INSERT INTO `w_user` VALUES ('2', '张三', 'zs', '202cb962ac59075b964b07152d234b70', '2353525@qq.com', '2020-08-01 20:27:20', '1', '1', '127.0.0.1,0:0:0:0:0:0:0:1,192.168.0.62,192.168.1.101', '2020-04-04 20:28:12', '张三', '2020-04-29 11:28:44', '张三');

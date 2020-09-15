@@ -1,0 +1,6 @@
+#spring配置
+spring:
+  profiles:
+    active: prod
+server:
+  port: 8200
