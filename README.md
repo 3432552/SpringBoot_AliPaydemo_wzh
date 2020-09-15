@@ -1,2 +1,0 @@
-# SpringBoot_AliPaydemo_wzh
-SpringBoot整合支付宝支付demo
